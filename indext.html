@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>أرخبيل، يعني هدية</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "IBM Plex Sans Arabic", sans-serif;
+        color: black;
+        text-align: center;
+        background: url("./bg1.jpg") no-repeat center center/cover;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .blur-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(12px);
+        background: rgba(0, 0, 0, 0.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        transition: opacity 1s ease;
+      }
+
+      h1 {
+        font-size: 3rem;
+        margin: 0;
+      }
+
+      p {
+        font-size: 1.5rem;
+        margin-top: 10px;
+      }
+
+      .hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .ibm-plex-sans-arabic-thin {
+        font-family: "IBM Plex Sans Arabic", serif;
+        font-weight: 100;
+        font-style: normal;
+      }
+
+      .ibm-plex-sans-arabic-extralight {
+        font-family: "IBM Plex Sans Arabic", serif;
+        font-weight: 200;
+        font-style: normal;
+      }
+
+      .ibm-plex-sans-arabic-light {
+        font-family: "IBM Plex Sans Arabic", serif;
+        font-weight: 300;
+        font-style: normal;
+        color: white    ;
+      }
+
+      .ibm-plex-sans-arabic-regular {
+        font-family: "IBM Plex Sans Arabic", serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      .ibm-plex-sans-arabic-medium {
+        font-family: "IBM Plex Sans Arabic", serif;
+        font-weight: 500;
+        font-style: normal;
+        color: white;
+      }
+
+      .ibm-plex-sans-arabic-semibold {
+        font-family: "IBM Plex Sans Arabic", serif;
+        font-weight: 600;
+        font-style: normal;
+      }
+
+      .ibm-plex-sans-arabic-bold {
+        font-family: "IBM Plex Sans Arabic", serif;
+        font-weight: 700;
+        font-style: normal;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="blur-overlay" id="overlay">
+      <h1 class="ibm-plex-sans-arabic-medium">أرخبيل، يعني هدية</h1>
+      <p class="ibm-plex-sans-arabic-light">15.7.2025</p>
+    </div>
+
+    <script>
+      const releaseDate = new Date("2025-07-15T00:00:00").getTime();
+      const overlay = document.getElementById("overlay");
+
+      function checkRelease() {
+        const now = new Date().getTime();
+        if (now >= releaseDate) {
+          overlay.classList.add("hidden");
+        }
+      }
+      checkRelease();
+      setInterval(checkRelease, 1000);
+    </script>
+  </body>
+</html>
